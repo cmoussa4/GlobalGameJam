@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] CircleCollider2D roots;
-    [SerializeField] float moveSpeed;
-    private float movement = 0f;
+    [SerializeField] float moveSpeed = 0.1f;
+    [SerializeField] float steerSpeed = 0.01f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,25 +15,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position -= transform.right * moveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += transform.right * moveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += transform.up * moveSpeed * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position -= transform.up * moveSpeed * Time.deltaTime;
-        }
+        Moving();
+        
     }
-    private void FixedUpdate()
+    void Moving()
     {
-       
+        float speedAmount = Input.GetAxis("Vertical") * moveSpeed;
+        float steerAmount = Input.GetAxis("Horizontal") * steerSpeed;
+
+        transform.Rotate(0, 0, -steerAmount);
+        transform.Translate(0, speedAmount, 0);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pebble"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }
