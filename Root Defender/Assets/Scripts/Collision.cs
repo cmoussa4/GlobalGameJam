@@ -19,6 +19,34 @@ public class Collision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Score.text = "Water droplets fed to the roots: " + score;
+
+        if(dropletHeld)
+        {
+            holdingDroplet.text = "Holding Droplet";
+        }
+        else
+        {
+            holdingDroplet.text = "No Droplet Held";
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Droplet") && !dropletHeld)
+        {
+            Destroy(collision.gameObject);
+            dropletHeld = true;
+            
+
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Roots") && dropletHeld)
+        {
+            score++;
+            dropletHeld = false;
+            
+        }
     }
 }
