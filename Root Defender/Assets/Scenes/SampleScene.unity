@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pebbles: {fileID: 830799924069679967, guid: 4f1ee0e7c30863a41ac7e653cc6f1ab3, type: 3}
+  timeTillNextSpawn: 0.1
 --- !u!4 &528291067
 Transform:
   m_ObjectHideFlags: 0
@@ -457,7 +458,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756378478}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -467,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -746.55695, y: 474}
+  m_AnchoredPosition: {x: -746.55695, y: 471}
   m_SizeDelta: {x: 370.8861, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756378480
