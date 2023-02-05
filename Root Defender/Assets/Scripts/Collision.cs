@@ -10,10 +10,14 @@ public class Collision : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField] TextMeshProUGUI Score;
     [SerializeField] TextMeshProUGUI holdingDroplet;
+    [SerializeField] GameObject scorePopup;
+    [SerializeField] GameObject Roots;
+    [SerializeField] GameObject DropletExplosion;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -36,7 +40,7 @@ public class Collision : MonoBehaviour
         {
             Destroy(collision.gameObject);
             dropletHeld = true;
-            
+            Instantiate(DropletExplosion, collision.gameObject.transform.position, Quaternion.identity);
 
         }
     }
@@ -46,7 +50,7 @@ public class Collision : MonoBehaviour
         {
             score++;
             dropletHeld = false;
-            
+            Instantiate(scorePopup, Roots.transform.position, Quaternion.identity);
         }
     }
 }
