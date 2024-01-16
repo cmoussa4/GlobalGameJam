@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Pebble : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject deathexplosion;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy();
-    }
-    void Destroy()
-    {
-        if(transform.position.y <= -5f)
+        if (collision.gameObject.CompareTag("Borders"))
         {
             Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Instantiate(deathexplosion, transform.position, Quaternion.identity);
         }
     }
 }
