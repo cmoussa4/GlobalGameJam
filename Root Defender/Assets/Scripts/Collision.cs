@@ -27,7 +27,7 @@ public class Collision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score.text = "Water droplets fed to the roots: " + score + " /20";
+        Score.text = "Water droplets fed to the roots: " + score;
 
         if(dropletHeld)
         {
@@ -37,6 +37,8 @@ public class Collision : MonoBehaviour
         {
             holdingDroplet.text = "No Droplet Held";
         }
+
+        ScoreUnlocks();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +62,14 @@ public class Collision : MonoBehaviour
             spriteRenderer.color = Color.white;
             pointSound.time = 0.5f;
             pointSound.Play();
+        }
+    }
+
+    void ScoreUnlocks()
+    {
+        if(score == 10)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }

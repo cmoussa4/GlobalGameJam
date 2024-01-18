@@ -7,6 +7,7 @@ public class DropletSpawner : MonoBehaviour
     [SerializeField] GameObject Droplet;
     private float spawnIntervals;
     private float spawnTime = 0f;
+    [SerializeField] float timepassedforSpawning;
     [SerializeField] Transform[] dropletSpawns;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class DropletSpawner : MonoBehaviour
     {
 
         spawnTime += Time.deltaTime;
-        if(spawnTime >= 2.0f)
+        if(spawnTime >= timepassedforSpawning)
         {
             spawnTime = spawnIntervals;
             Instantiate(Droplet, dropletSpawns[Random.Range(0, dropletSpawns.Length-1)].position, Quaternion.identity);

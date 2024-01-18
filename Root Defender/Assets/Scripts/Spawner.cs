@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
         {
             spawnTime = spawnIntervals;
             Instantiate(Pebbles, new Vector3(x, 5.0f, 0.0f), Quaternion.identity);
-            //timeTillNextSpawn -= 0.1f;
+            
 
         }
     }
