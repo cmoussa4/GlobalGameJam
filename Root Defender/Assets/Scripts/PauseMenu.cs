@@ -67,7 +67,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             Time.timeScale = 1f;
         }
         

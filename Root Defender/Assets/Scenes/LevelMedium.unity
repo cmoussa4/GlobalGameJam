@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Droplet: {fileID: 4853004266148338246, guid: 0d98e4c86461e6040814a8294b0b0723, type: 3}
-  timepassedforSpawning: 1.5
+  timepassedforSpawning: 2
   dropletSpawns:
   - {fileID: 1728996180}
   - {fileID: 1466621760}
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pebbles: {fileID: 830799924069679967, guid: 4f1ee0e7c30863a41ac7e653cc6f1ab3, type: 3}
-  timeTillNextSpawn: 0.8
+  timeTillNextSpawn: 1
 --- !u!4 &528291067
 Transform:
   m_ObjectHideFlags: 0

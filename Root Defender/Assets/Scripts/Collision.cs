@@ -27,7 +27,7 @@ public class Collision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Score.text = "Water droplets fed to the roots: " + score + "/";
+        Score.text = "Water droplets fed to the roots: " + score + "/20";
 
         if(dropletHeld)
         {
@@ -67,19 +67,9 @@ public class Collision : MonoBehaviour
 
     void ScoreUnlocks()
     {
-        if(score == 10)
-        {
-            SceneManager.LoadScene(5);
-        }
-
         if(score == 20)
         {
-            SceneManager.LoadScene(6);
-        }
-
-        if(score == 30)
-        {
-            SceneManager.LoadScene(7);
+            SceneManager.LoadScene(5);
         }
     }
 }

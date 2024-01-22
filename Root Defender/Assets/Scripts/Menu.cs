@@ -11,6 +11,10 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void LevelSelect()
     {
         SceneManager.LoadScene(1);
