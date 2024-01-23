@@ -67,7 +67,7 @@ public class Collision : MonoBehaviour
 
     void ScoreUnlocks()
     {
-        if(score == 20)
+        if(score == 1)
         {
             SceneManager.LoadScene(3);
         }

@@ -7,13 +7,16 @@ public class LevelSelectMenu : MonoBehaviour
 {
     public LevelObject[] levelObjects;
     public Sprite tickSprite;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     public static int currentLevel;
     public static int unlockedLevels;
     // Start is called before the first frame update
     public void Level(int LevelNum)
     {
         currentLevel = LevelNum;
-        SceneManager.LoadScene(2);
+        audioSource.PlayOneShot(audioClip);
+        StartCoroutine(PlayLevel());
     }
 
     private void Start()
@@ -36,5 +39,11 @@ public class LevelSelectMenu : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator PlayLevel()
+    {
+        yield return new WaitForSeconds(audioClip.length);
+        SceneManager.LoadScene(2);
     }
 }

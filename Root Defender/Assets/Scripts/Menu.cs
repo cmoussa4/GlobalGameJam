@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
+    public AudioSource source;
+    public AudioClip audioClip;
     public void Quit()
     {
         Application.Quit();
@@ -13,11 +14,14 @@ public class Menu : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene(0);
+        source.PlayOneShot(audioClip);
+        StartCoroutine(BackToMenuLoad());
     }
     public void LevelSelect()
     {
-        SceneManager.LoadScene(1);
+        source.PlayOneShot(audioClip);
+        StartCoroutine(LevelSelectLoad());
+        
     }
 
 
@@ -34,6 +38,18 @@ public class Menu : MonoBehaviour
             PlayerPrefs.SetInt("ticks" + LevelSelectMenu.currentLevel.ToString(), ticksGained);
         }
         
+        SceneManager.LoadScene(0);
+    }
+
+    private IEnumerator LevelSelectLoad()
+    {
+        yield return new WaitForSeconds(audioClip.length);
+        SceneManager.LoadScene(1);
+    }
+
+    private IEnumerator BackToMenuLoad()
+    {
+        yield return new WaitForSeconds(audioClip.length);
         SceneManager.LoadScene(0);
     }
 }
