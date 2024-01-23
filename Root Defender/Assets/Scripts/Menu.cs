@@ -20,23 +20,20 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void LevelEasy()
-    {
-        SceneManager.LoadScene(2);
-    }
 
-    public void LevelMedium()
-    {
-        SceneManager.LoadScene(3);
-    }
 
-    public void LevelHard()
+    public void OnLevelComplete(int ticksGained)
     {
-        SceneManager.LoadScene(4);
-    }
-
-    public void Back()
-    {
+        if(LevelSelectMenu.currentLevel == LevelSelectMenu.unlockedLevels)
+        {
+            LevelSelectMenu.unlockedLevels++;
+            PlayerPrefs.SetInt("unlockedLevels", LevelSelectMenu.unlockedLevels);
+        }
+        if(ticksGained > PlayerPrefs.GetInt("ticks" + LevelSelectMenu.currentLevel.ToString(), 0))
+        {
+            PlayerPrefs.SetInt("ticks" + LevelSelectMenu.currentLevel.ToString(), ticksGained);
+        }
+        
         SceneManager.LoadScene(0);
     }
 }
